@@ -1,34 +1,48 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useSelector} from 'react-redux'
 import axios from 'axios'
 
-function Details() {
+function Details(props) {
+
+    let [details, setDetails] = useState([])
 
     useEffect(() => {
-
-        dispatch({ type: 'FETCH_ID' });
+        axios.get(`/api/genre/${props.id}`).then((response) =>{
+            console.log(response.data)
+            setDetails(response.data)
+        }).catch((err) =>{
+            alert('Error');
+            console.log(err);
+        })
+        
     }, []);
 
-    const description = useSelector( (store) =>{
-        console.log('use selector:', store.movies)
-        return store.movies
-    })
-  
+    // const description = useSelector( (store) =>{
+    //     console.log('use selector:', store.movies)
+    //     return store.movies
+    // })
     
-    axios.get('/api/movie').then((response) =>{
-        console.log(response.data)
-    }).catch((err) =>{
-        alert('Error');
-        console.log(err);
-    })
+    console.log(props)
+    
     
 
 
     return(
         <>
-        <li>
-        {JSON.stringify(description)}
-        </li>
+        <div>
+            {details.map(detail => (
+                <> 
+                    <h3>
+                        {detail.name}
+                    </h3>
+                    
+                </>
+            ))}
+                    <p>
+                        {details[0]?.description}
+                    </p>
+        </div>
+
         </>
     )
 }

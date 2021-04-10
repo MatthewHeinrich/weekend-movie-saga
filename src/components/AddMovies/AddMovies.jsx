@@ -6,46 +6,55 @@ function AddMovies(){
 
     const dispatch = useDispatch();
 
-    const [addTitle, setAddTitle] = useState('');
-    const [addUrl, setAddUrl] = useState('');
+    const [title, setTitle] = useState('');
+    const [poster, setPoster] = useState('');
+    const [description, setDescription] = useState('');
+    const [genre, setGenre] = useState('')
 
-    const handleTitle = (event) =>{
-        setAddTitle(event.target.value);
-    }
+    const sendMovie = () =>{
+        const addMovie = {
+            title: title,
+            poster: poster,
+            description: description,
+            genre: genre
+        }
+        if(genre === '') {
+            window.alert("Select a genre")
+            return
+        }
 
-    const handleUrl = (event) =>{
-        setAddUrl(event.target.value);
-    }
-
-    const saveMovie = () =>{
-        dispatch({type:'FETCH_MOVIES', payload: addTitle})
+        console.log(addMovie)
+        dispatch({type:'SEND_MOVIE', payload: addMovie})
     }
 
     return(
         <div>
             <h2>Add A Movie</h2>
-            <input placeholder="Movie Title" value={addTitle} onChange={handleTitle}></input>
-            <input placeholder="Movie URL" value={addUrl} onChange={handleUrl}></input>
-            <button onClick={saveMovie}>Cancel</button>
-            <p>Description: -Movie Description-</p>
-            <select>
+            <input placeholder="Movie Title" value={title} onChange={(event) => setTitle(event.target.value)}></input>
+            <input placeholder="Movie URL" value={poster} onChange={(event) => setPoster(event.target.value)}></input>
+            <button >Cancel</button>
+            <div>
+                <p>Description</p>
+                <textarea placeholder="Description" value={description} onChange={(event) => setDescription(event.target.value)}/>
+            </div>
+            <select onChange={(event) => setGenre(event.target.value)}>
                 <option selected disabled >Select Genre</option>
-                <option>Adventure</option>
-                <option>Animated</option>
-                <option>Biographical</option>
-                <option>Comedy</option>
-                <option>Disaster</option>
-                <option>Drama</option>
-                <option>Epic</option>
-                <option>Fantasy</option>
-                <option>Musical</option>
-                <option>Romantic</option>
-                <option>Science Fiction</option>
-                <option>Space-Opera</option>
-                <option>Superhero</option>
+                <option value={1} >Adventure</option>
+                <option value={2}>Animated</option>
+                <option value={3} >Biographical</option>
+                <option value={4} >Comedy</option>
+                <option value={5} >Disaster</option>
+                <option value={6} >Drama</option>
+                <option value={7} >Epic</option>
+                <option value={8} >Fantasy</option>
+                <option value={9} >Musical</option>
+                <option value={10} >Romantic</option>
+                <option value={11} >Science Fiction</option>
+                <option value={12} >Space-Opera</option>
+                <option value={13} >Superhero</option>
             </select>
             <div>
-                <button>Save</button>
+                <button onClick={sendMovie}>Save</button>
             </div>
         </div>
     )

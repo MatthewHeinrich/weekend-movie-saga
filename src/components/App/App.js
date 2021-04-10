@@ -13,8 +13,8 @@ function App() {
         <Route path="/" exact>
           <MovieList />
         </Route> 
-        <Route path='/details'>
-          <Details />
+        <Route path='/details/:id' render={(props) => <Details id={props.match.params.id} /> }>
+          {/* <Details /> */}
         </Route>
         <Route path ="/addmovies" exact>
             <AddMovies />

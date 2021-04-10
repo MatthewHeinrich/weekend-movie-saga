@@ -16,7 +16,7 @@ function MovieList(props) {
     }, []);
 
     const showDetails = () =>{
-        console.log('show details', movies)
+        
         
     }
 
@@ -30,11 +30,11 @@ function MovieList(props) {
                 {movies.map(movie => {
                     
                     return (
-                        <Link to='/description'>
-                        <div onClick={showDetails}key={movie.id} >
-                            <h3>{movie.title}</h3>
-                            <img src={movie.poster} alt={movie.title}/>
-                        </div>
+                        <Link to={`/details/${movie.id}`}>
+                            <div onClick={showDetails}key={movie.id} >
+                                <h3>{movie.title}</h3>
+                                <img src={movie.poster} alt={movie.title}/>
+                            </div>
                         </Link>
                     );
                 })}

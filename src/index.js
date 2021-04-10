@@ -14,7 +14,7 @@ import axios from 'axios';
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchAllMovies);
-    yield takeEvery('FETCH_ID', fetchMovieId)
+    yield takeEvery('SEND_MOVIE', addNewMovie)
 }
 
 function* fetchAllMovies() {
@@ -30,16 +30,23 @@ function* fetchAllMovies() {
         
 }
 
-// function* fetchMovieId() {
-//     try {
-//         const movies = yield axios.get('/api/movie/:id');
-//         console.log('get all:', movies.data.id);
-//         yield put({ type: 'SET_MOVIES', payload: movies.data.id });
+function* addNewMovie(action) {
+    console.log('in add movie', action.payload)
+    try {
+        let response = yield axios.post('/api/movie', action.payload );
 
-//     } catch {
-//         console.log('get all error');
-//     }
-// }
+        console.log('add movie to db', response.data)
+        // const response = yield axios.get('/api/movie')
+        // console.log('get all:', response.data);
+        yield put({ type: 'ADD_MOVIE', payload: action.payload });
+        
+
+    } catch {
+        console.log('problem adding movie');
+    }
+        
+}
+
 
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
@@ -49,6 +56,9 @@ const movies = (state = [], action) => {
     switch (action.type) {
         case 'SET_MOVIES':
             return action.payload;
+        case 'ADD_MOVIE':
+            console.log('add movie to reducer:', action.payload)
+            return [...state, action.payload]
         default:
             return state;
     }
