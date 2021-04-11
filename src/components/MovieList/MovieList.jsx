@@ -25,22 +25,22 @@ function MovieList(props) {
         <main>
             <h1>MovieList</h1>
             <Link to='/AddMovies'>
-                <button id="button1" class="btn btn-primary">Add Movies</button>
+                <button id="button1" class="btn btn-info">Add Movies</button>
             </Link>
             <section className="movies">
                 {movies.map(movie => {
                     
                     return (
-                        <div class="card" >
-                            <img class="card-img-top" height={300} width={250} src={movie.poster} alt={movie.title}/>
-                            <div >
+                        <div class="card gradient-border" >
+                            <div class="card-header">
                             <p class="card-title">{movie.title}</p>
                             </div>
+                            <img class="card-img-top" height={300} width={250} src={movie.poster} alt={movie.title}/>
                         
                             <div  class="card-body" onClick={showDetails}key={movie.id} >
                             
                                 <Link to={`/details/${movie.id}`}>
-                                <a href="#" class="btn btn-outline-primary">Details</a>
+                                <a class="btn btn-outline-warning" >Details</a>
                                 </Link>
                             </div>
                         
