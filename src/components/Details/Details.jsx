@@ -46,7 +46,9 @@ function Details(props) {
                     </h4>
                 </>
             ))}
-                <img height={300} width={200} src={details[0]?.poster}></img>
+                <div class="card gradient-border">
+                    <img height={300} width={200} src={details[0]?.poster}></img>
+                </div>
                 <h3 class="descr-h3">Description:</h3>
                     <p class="description">
                         {details[0]?.description}

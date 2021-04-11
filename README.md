@@ -12,7 +12,7 @@ List of added movies:
 
 Details page:
 
-![image](https://user-images.githubusercontent.com/74434237/114320610-42417200-9adc-11eb-80c9-b4262b1fbecc.png)
+![image](https://user-images.githubusercontent.com/74434237/114320772-2c807c80-9add-11eb-9da5-40f1566e9847.png)
 
 Add new movies page:
 
