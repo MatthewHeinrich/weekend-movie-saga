@@ -33,7 +33,7 @@ function MovieList(props) {
                         <Link to={`/details/${movie.id}`}>
                             <div onClick={showDetails}key={movie.id} >
                                 <h3>{movie.title}</h3>
-                                <img src={movie.poster} alt={movie.title}/>
+                                <img height={300} width={250} src={movie.poster} alt={movie.title}/>
                             </div>
                         </Link>
                     );

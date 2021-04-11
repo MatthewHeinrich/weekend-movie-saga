@@ -1,10 +1,12 @@
 import React, {useState} from 'react';
 import {useDispatch} from 'react-redux'
+import {useHistory} from 'react-router-dom';
 
 
 function AddMovies(){
 
     const dispatch = useDispatch();
+    const history = useHistory();
 
     const [title, setTitle] = useState('');
     const [poster, setPoster] = useState('');
@@ -25,6 +27,11 @@ function AddMovies(){
 
         console.log(addMovie)
         dispatch({type:'SEND_MOVIE', payload: addMovie})
+        history.push('/');
+    }
+
+    const backToHome = () =>{
+        history.push('/');
     }
 
     return(
@@ -32,7 +39,7 @@ function AddMovies(){
             <h2>Add A Movie</h2>
             <input placeholder="Movie Title" value={title} onChange={(event) => setTitle(event.target.value)}></input>
             <input placeholder="Movie URL" value={poster} onChange={(event) => setPoster(event.target.value)}></input>
-            <button >Cancel</button>
+            <button onClick={backToHome}>Cancel</button>
             <div>
                 <p>Description</p>
                 <textarea placeholder="Description" value={description} onChange={(event) => setDescription(event.target.value)}/>

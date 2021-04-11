@@ -29,15 +29,19 @@ function Details(props) {
 
     return(
         <>
+        <header className="detailHead">
+            <h1>Movie Details</h1>
+        </header>
+        <h3>Genres:</h3>
         <div>
             {details.map(detail => (
                 <> 
-                    <h3>
+                    <h4>
                         {detail.name}
-                    </h3>
-                    
+                    </h4>
                 </>
             ))}
+                <h3>Description:</h3>
                     <p>
                         {details[0]?.description}
                     </p>
