@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom'
+import Card from "react-bootstrap/Card";
 import axios from 'axios'
 import './MovieList.css'
 import Details from '../Details/Details'
@@ -24,18 +25,26 @@ function MovieList(props) {
         <main>
             <h1>MovieList</h1>
             <Link to='/AddMovies'>
-                <button>Add Movies</button>
+                <button id="button1" class="btn btn-primary">Add Movies</button>
             </Link>
             <section className="movies">
                 {movies.map(movie => {
                     
                     return (
-                        <Link to={`/details/${movie.id}`}>
-                            <div onClick={showDetails}key={movie.id} >
-                                <h3>{movie.title}</h3>
-                                <img height={300} width={250} src={movie.poster} alt={movie.title}/>
+                        <div class="card" >
+                            <img class="card-img-top" height={300} width={250} src={movie.poster} alt={movie.title}/>
+                            <div >
+                            <p class="card-title">{movie.title}</p>
                             </div>
-                        </Link>
+                        
+                            <div  class="card-body" onClick={showDetails}key={movie.id} >
+                            
+                                <Link to={`/details/${movie.id}`}>
+                                <a href="#" class="btn btn-outline-primary">Details</a>
+                                </Link>
+                            </div>
+                        
+                        </div>
                     );
                 })}
             </section>

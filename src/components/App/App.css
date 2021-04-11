@@ -27,3 +27,24 @@
   background-color: rgb(19, 27, 75);
   color: white;
 }
+
+.card{
+  background-color:mintcream;
+
+}
+
+.card-img-top{
+  height: 300px;
+  width: 250px;
+  object-fit: cover;
+}
+/* .card-header{
+  background-color: rgb(128, 164, 168);
+} */
+.card-title{
+  color:slateblue
+}
+#button1{
+  margin-top: 2em;
+  margin-bottom: 5em;
+}
