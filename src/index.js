@@ -13,8 +13,8 @@ import axios from 'axios';
 
 // Create the rootSaga generator function
 function* rootSaga() {
-    yield takeEvery('FETCH_MOVIES', fetchAllMovies);
-    yield takeEvery('SEND_MOVIE', addNewMovie)
+    yield takeEvery('FETCH_MOVIES', fetchAllMovies); // watcher for get request for all movies
+    yield takeEvery('SEND_MOVIE', addNewMovie) // watcher for put request for new movie
 }
 
 function* fetchAllMovies() {
@@ -31,6 +31,7 @@ function* fetchAllMovies() {
 }
 
 function* addNewMovie(action) {
+    // send new movie to DB
     console.log('in add movie', action.payload)
     try {
         let response = yield axios.post('/api/movie', action.payload );
@@ -39,7 +40,7 @@ function* addNewMovie(action) {
         // const response = yield axios.get('/api/movie')
         // console.log('get all:', response.data);
         yield put({ type: 'ADD_MOVIE', payload: action.payload });
-        
+
 
     } catch {
         console.log('problem adding movie');

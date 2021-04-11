@@ -8,13 +8,14 @@ function AddMovies(){
     const dispatch = useDispatch();
     const history = useHistory();
 
+    // local state for properties
     const [title, setTitle] = useState('');
     const [poster, setPoster] = useState('');
     const [description, setDescription] = useState('');
     const [genre, setGenre] = useState('')
 
     const sendMovie = () =>{
-        const addMovie = {
+        const addMovie = { // object of new movie properties
             title: title,
             poster: poster,
             description: description,
@@ -26,15 +27,15 @@ function AddMovies(){
         }
 
         console.log(addMovie)
-        dispatch({type:'SEND_MOVIE', payload: addMovie})
-        history.push('/');
+        dispatch({type:'SEND_MOVIE', payload: addMovie}) // sends new movie out to saga
+        history.push('/'); // returns to home page
     }
 
     const backToHome = () =>{
         history.push('/');
     }
 
-    return(
+    return( // gathers details on new movie being added
         <div>
             <h1 class="addMovie"><strong>Add A Movie</strong></h1>
             <input placeholder="Movie Title" value={title} onChange={(event) => setTitle(event.target.value)} class="title-input"></input>

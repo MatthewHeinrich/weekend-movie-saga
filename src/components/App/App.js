@@ -6,14 +6,14 @@ import AddMovies from '../AddMovies/AddMovies'
 import Details from '../Details/Details'
 
 function App() {
-  return (
+  return ( // rendering components on app
     <div className="App">
       <h1>The Movies Saga!</h1>
       <Router>    
         <Route path="/" exact>
           <MovieList />
         </Route> 
-        <Route path='/details/:id' render={(props) => <Details id={props.match.params.id} /> }>
+        <Route path='/details/:id' render={(props) => <Details id={props.match.params.id} /> }> 
           {/* <Details /> */}
         </Route>
         <Route path ="/addmovies" exact>

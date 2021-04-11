@@ -8,7 +8,7 @@ function Details(props) {
     let [details, setDetails] = useState([])
     const history = useHistory();
 
-    useEffect(() => {
+    useEffect(() => { // getting movie details from database
         axios.get(`/api/genre/${props.id}`).then((response) =>{
             console.log(response.data)
             setDetails(response.data)
@@ -27,14 +27,14 @@ function Details(props) {
     console.log(props)
     
     const backHome = () =>{
-        history.push('/');
+        history.push('/'); 
     }
     
 
-
-    return(
+    // renders genres, movie poster and description 
+    return( 
         <>
-        <header className="detailHead">
+        <header className="detailHead"> 
             <h1>Movie Details</h1>
         </header>
         <h2 class="genre-h2"><strong>Genres:</strong></h2>
@@ -42,7 +42,7 @@ function Details(props) {
             {details.map(detail => (
                 <> 
                     <h4>
-                        {detail.name}
+                        {detail.name} 
                     </h4>
                 </>
             ))}
@@ -56,7 +56,7 @@ function Details(props) {
         </div>
         <div class="details">
                 <button id="home-btn" class="btn btn-info" onClick={backHome}>Home</button>
-        </div>
+        </div> 
 
         </>
     )

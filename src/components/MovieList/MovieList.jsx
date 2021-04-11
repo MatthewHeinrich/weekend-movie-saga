@@ -13,15 +13,10 @@ function MovieList(props) {
 
 
     useEffect(() => {
-        dispatch({ type: 'FETCH_MOVIES' });
+        dispatch({ type: 'FETCH_MOVIES' }); // sends a dispatch to render existing movies on page
     }, []);
 
-    const showDetails = () =>{
-        
-        
-    }
-
-    return (
+    return ( // renders a list of all movies in db
         <main>
             <h1>MovieList</h1>
             <Link to='/AddMovies'>

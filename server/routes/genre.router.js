@@ -3,6 +3,7 @@ const router = express.Router();
 const pool = require('../modules/pool')
 
 router.get('/:id', (req, res) => {
+  //  query to join tables. Uses id's of specific movie and returns genre, poster and description
   const query = `SELECT "genres".name, "movies".description, "movies".poster FROM "movies_genres"
                 JOIN "genres" ON "genres".id = "movies_genres".genre_id
                 JOIN "movies" ON "movies".id = "movies_genres".movie_id
