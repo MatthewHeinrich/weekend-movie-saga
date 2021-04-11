@@ -32,7 +32,7 @@ function MovieList(props) {
                             </div>
                             <img class="card-img-top" height={300} width={250} src={movie.poster} alt={movie.title}/>
                         
-                            <div  class="card-body" onClick={showDetails}key={movie.id} >
+                            <div  class="card-body" key={movie.id} >
                             
                                 <Link to={`/details/${movie.id}`}>
                                 <a class="btn btn-outline-warning" >Details</a>
