@@ -28,7 +28,7 @@ function MovieList(props) {
                     return (
                         <div class="card gradient-border" >
                             <div class="card-header">
-                            <p class="card-title">{movie.title}</p>
+                            <h5 class="card-title">{movie.title}</h5>
                             </div>
                             <img class="card-img-top" height={300} width={250} src={movie.poster} alt={movie.title}/>
                         
