@@ -128,6 +128,7 @@ margin: 0 auto;
 }
 #cancel-btn{
   margin-left: 1em;
+
 }
 #save-btn{
   margin-top: 2em;
@@ -151,4 +152,7 @@ margin: 0 auto;
 }
 .descr-h3{
   margin-top: 5%;
+}
+.addMovieBtns{
+  margin-bottom: 100%;
 }

@@ -36,12 +36,12 @@ function AddMovies(){
 
     return(
         <div>
-            <h2 class="addMovie">Add A Movie</h2>
+            <h1 class="addMovie"><strong>Add A Movie</strong></h1>
             <input placeholder="Movie Title" value={title} onChange={(event) => setTitle(event.target.value)} class="title-input"></input>
             <input placeholder="Movie URL" value={poster} onChange={(event) => setPoster(event.target.value)} class="url-input"></input>
             <button onClick={backToHome} id="cancel-btn" class="btn btn-info">Cancel</button>
             <div>
-
+            
                 <textarea id="description" placeholder="Description" value={description} onChange={(event) => setDescription(event.target.value)}/>
             </div>
                 <select onChange={(event) => setGenre(event.target.value)} class="form-select" aria-label="Default select example" >
@@ -61,7 +61,7 @@ function AddMovies(){
                     <option value={13} >Superhero</option>
                 </select>
             
-            <div>
+            <div class="addMovieBtns">
                 <button onClick={sendMovie} id="save-btn" class="btn btn-info">Save</button>
             </div>
         </div>
