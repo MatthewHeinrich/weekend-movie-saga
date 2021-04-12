@@ -26,7 +26,10 @@ function AddMovies(){
             window.alert("Must elect a genre")
             return
         } else if(poster.length > 150) {
-            window.alert('Url is too long')
+            window.alert('URL is too long')
+            return
+        } else if(poster === ''){
+            window.alert('Must provide URL')
             return
         } else if(description === '') {
             window.alert('Must provide a description')
