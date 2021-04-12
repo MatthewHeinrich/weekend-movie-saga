@@ -21,14 +21,26 @@ function AddMovies(){
             description: description,
             genre: genre
         }
+        
         if(genre === '') {
-            window.alert("Select a genre")
+            window.alert("Must elect a genre")
             return
+        } else if(poster.length > 150) {
+            window.alert('Url is too long')
+            return
+        } else if(description === '') {
+            window.alert('Must provide a description')
+            return
+        } else if(title === ''){
+            window.alert('Must provide title')
         }
+        
+        else {
 
         console.log(addMovie)
         dispatch({type:'SEND_MOVIE', payload: addMovie}) // sends new movie out to saga
         history.push('/'); // returns to home page
+        }
     }
 
     const backToHome = () =>{
@@ -48,7 +60,7 @@ function AddMovies(){
                 <select onChange={(event) => setGenre(event.target.value)} class="form-select" aria-label="Default select example" >
                     <option selected disabled >Select Genre</option>
                     <option value={1} >Adventure</option>
-                    <option value={2}>Animated</option>
+                    <option value={2} >Animated</option>
                     <option value={3} >Biographical</option>
                     <option value={4} >Comedy</option>
                     <option value={5} >Disaster</option>
